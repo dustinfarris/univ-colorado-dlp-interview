@@ -41,8 +41,36 @@ describe("univ-colorado-dlp-interview", function() {
         });
     });
 
-    // FILL ME IN
-    // Write a test to for Justin's s3 access.
+    it("allows Justin to access notpublic data from s3", function(done) {
+        const expectedPolicy = JSON.stringify({
+            Version: "2012-10-17",
+            Statement: [
+                {
+                    Effect: "Allow",
+                    Principal: "*",
+                    Action: ["s3:ListBucket", "s3:GetObject"],
+                    Resource: [
+                        "arn:aws:s3:::univ-colorado-dlp-interview",
+                        "arn:aws:s3:::univ-colorado-dlp-interview/*public*",
+                    ],
+                },
+                {
+                    Effect: "Allow",
+                    Principal: { AWS: "arn:aws:iam::123456789012:user/Justin" },
+                    Action: ["s3:ListBucket", "s3:GetObject"],
+                    Resource: [
+                        "arn:aws:s3:::univ-colorado-dlp-interview",
+                        "arn:aws:s3:::univ-colorado-dlp-interview/notpublic",
+                        "arn:aws:s3:::univ-colorado-dlp-interview/notpublic/*",
+                    ],
+                },
+            ],
+        });
+
+        outputs(done, [infra.bucket.policy], ([policy]) => {
+            assert.equal(policy, expectedPolicy);
+        });
+    });
 });
 
 describe("financial-report", function() {

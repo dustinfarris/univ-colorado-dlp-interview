@@ -23,8 +23,16 @@ export const bucket = new aws.s3.Bucket("univ-colorado-dlp-interview", {
             // Justin's arn is: arn:aws:iam::123456789012:user/Justin
             //
             // He needs to be able to list the bucket contents and download files.
-
-            // FILL ME IN
+            {
+                Effect: "Allow",
+                Principal: { AWS: "arn:aws:iam::123456789012:user/Justin" },
+                Action: ["s3:ListBucket", "s3:GetObject"],
+                Resource: [
+                    "arn:aws:s3:::univ-colorado-dlp-interview",
+                    "arn:aws:s3:::univ-colorado-dlp-interview/notpublic",
+                    "arn:aws:s3:::univ-colorado-dlp-interview/notpublic/*",
+                ],
+            },
         ],
     }),
 });
