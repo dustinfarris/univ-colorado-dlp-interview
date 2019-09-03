@@ -1,0 +1,4 @@
+export PULUMI_NODEJS_PROJECT=test-project
+export PULUMI_NODEJS_STACK=local
+export PULUMI_CONFIG="$(cat test/pulumi-config.json)"
+export PULUMI_TEST_MODE=true

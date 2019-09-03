@@ -1,0 +1,23 @@
+{
+    "name": "univ-colorado-dlp-interview",
+    "description": "University of Colorado interactive DLP interview",
+    "scripts": {
+        "format": "prettier --write * test/pulumi-config.json **/*.ts",
+        "test": "source test/env && mocha",
+        "test:watch": "source test/env && mocha --watch"
+    },
+    "devDependencies": {
+        "@types/mocha": "^5.2.7",
+        "@types/node": "latest",
+        "mocha": "^6.1.4"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "latest",
+        "@pulumi/aws": "latest"
+    },
+    "prettier": {
+        "trailingComma": "all",
+        "tabWidth": 4,
+        "endOfLine": "lf"
+    }
+}
