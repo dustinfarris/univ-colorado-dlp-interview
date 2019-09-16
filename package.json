@@ -4,10 +4,10 @@
     "scripts": {
         "format": "prettier --write * test/pulumi-config.json **/*.ts",
         "test": "run-script-os",
-        "test:nix": "source test/env && mocha",
+        "test:nix": "bash -c 'source test/env && mocha'",
         "test:windows": ".\\test\\wintest.bat",
         "testwatch": "run-script-os",
-        "testwatch:nix": "source test/env && mocha --watch",
+        "testwatch:nix": "bash -c 'source test/env && mocha --watch'",
         "testwatch:windows": ".\\test\\wintest.bat --watch"
     },
     "devDependencies": {
