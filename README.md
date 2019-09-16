@@ -21,7 +21,7 @@ Fill in the 2 code sections marked "FILL ME IN".
 
 or
 
-    npm run test:watch
+    npm run testwatch
 
 ## Formatting
 
