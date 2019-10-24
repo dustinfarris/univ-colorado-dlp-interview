@@ -28,7 +28,7 @@ export const outputs = (
     });
 };
 
-describe("univ-colorado-dlp-interview", function() {
+describe("bucket", function() {
     it("has a prefix of 'univ-colorado-dlp-interview'", function(done) {
         outputs(done, [infra.bucket.bucket], ([bucket]) => {
             assert.equal(bucket, "univ-colorado-dlp-interview");
@@ -45,7 +45,7 @@ describe("univ-colorado-dlp-interview", function() {
     // Write a test for William's s3 access.
 });
 
-describe("financial-report", function() {
+describe("secretDocument", function() {
     it("is named financial-report.csv", function(done) {
         outputs(done, [infra.secretDocument.key], ([key]) => {
             assert.equal(key, "notpublic/financial-report.csv");
@@ -59,7 +59,7 @@ describe("financial-report", function() {
     });
 });
 
-describe("website", function() {
+describe("publicDocument", function() {
     it("is named website.html", function(done) {
         outputs(done, [infra.publicDocument.key], ([key]) => {
             assert.equal(key, "public/website.html");
